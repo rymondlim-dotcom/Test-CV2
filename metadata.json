@@ -1,0 +1,6 @@
+{
+  "name": "Personal CV Website",
+  "description": "A minimal, responsive one-page personal CV with skills, experience timeline, projects, and contact form.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

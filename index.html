@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- EDITABLE PLACEHOLDER: Page Title & Meta -->
+  <title>Alex Morgan — Personal CV</title>
+  <meta name="description" content="Personal CV and portfolio of Alex Morgan — Senior Product Designer & Frontend Architect." />
+  <meta property="og:title" content="Alex Morgan — Personal CV" />
+  <meta property="og:description" content="Personal CV of Alex Morgan featuring work experience, skill sets, projects, and contact info." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Plus Jakarta Sans for a clean, modern aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       CSS Variables & Design Tokens (Minimal, White Background, 1 Accent Colour)
+       ========================================================================== */
+    :root {
+      /* Palette */
+      --bg: #ffffff;
+      --bg-surface: #f9fafb;
+      --bg-surface-hover: #f3f4f6;
+      
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --text-subtle: #6b7280;
+      --text-faint: #9ca3af;
+      
+      --border-color: #e5e7eb;
+      --border-light: #f3f4f6;
+      
+      /* Single Accent Colour: Royal Cobalt */
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --accent-light: #eff6ff;
+      --accent-border: #bfdbfe;
+      
+      /* Typography */
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      
+      /* Dimensions & Spacing */
+      --container-max-width: 760px;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-full: 9999px;
+      --transition-smooth: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ==========================================================================
+       Base Reset & Global Styles
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.65;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: var(--container-max-width);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    /* ==========================================================================
+       Navigation Top Bar
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .brand-logo {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .brand-logo:hover {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      padding: 0.25rem 0;
+    }
+
+    .nav-link:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--accent);
+      background-color: var(--accent-light);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-sm);
+      padding: 0.4rem 0.875rem;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      white-space: nowrap;
+    }
+
+    .nav-cta-btn:hover {
+      background-color: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    /* ==========================================================================
+       Section Utilities & Dividers
+       ========================================================================== */
+    .section {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
+    }
+
+    .section-divider {
+      height: 1px;
+      background-color: var(--border-color);
+      margin: 0 auto;
+      border: none;
+    }
+
+    .section-heading {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--text-main);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+    }
+
+    .section-heading::after {
+      content: "";
+      flex-grow: 1;
+      height: 1px;
+      background: var(--border-color);
+      margin-left: 0.5rem;
+    }
+
+    /* ==========================================================================
+       Section 1: Hero
+       ========================================================================== */
+    .hero-section {
+      padding-top: 4.5rem;
+      padding-bottom: 3.5rem;
+    }
+
+    .hero-name {
+      font-size: clamp(2.25rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.15;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(1.125rem, 2.5vw, 1.35rem);
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: -0.015em;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-intro {
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Primary and Secondary Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      line-height: 1;
+      padding: 0.75rem 1.375rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      min-height: 44px; /* Accessible touch target */
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #ffffff;
+      border: 1px solid var(--accent);
+      box-shadow: 0 1px 2px rgba(37, 99, 235, 0.15);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+      border-color: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(37, 99, 235, 0.2);
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background-color: var(--accent-light);
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       Section 2: About Me
+       ========================================================================== */
+    .about-text {
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       Section 3: Skills (8 skill chips in two groups: Work skills and Tools)
+       ========================================================================== */
+    .skills-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .skills-group-title {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-subtle);
+      margin-bottom: 0.75rem;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.625rem;
+    }
+
+    .skill-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.45rem 0.95rem;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-main);
+      transition: var(--transition-smooth);
+      user-select: none;
+    }
+
+    .skill-chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background-color: var(--accent-light);
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       Section 4: Experience (Vertical Timeline with 3 Roles)
+       ========================================================================== */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    /* Continuous vertical line */
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0.6rem;
+      bottom: 0.6rem;
+      left: 7px;
+      width: 2px;
+      background-color: var(--border-color);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.75rem;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Timeline bullet node */
+    .timeline-node {
+      position: absolute;
+      left: -2rem;
+      top: 0.35rem;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 0 3px #ffffff;
+      transition: var(--transition-smooth);
+    }
+
+    .timeline-item:hover .timeline-node {
+      background-color: var(--accent);
+      transform: scale(1.15);
+    }
+
+    .role-header {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.625rem;
+    }
+
+    @media (min-width: 600px) {
+      .role-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+    }
+
+    .role-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.015em;
+    }
+
+    .role-company {
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .role-dates {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-subtle);
+      margin-top: 0.2rem;
+    }
+
+    .achievements-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 0.625rem;
+    }
+
+    .achievement-item {
+      position: relative;
+      padding-left: 1.15rem;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    .achievement-item::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       Section 5: Projects (3 Project Cards: Title, One-line Result, Tag)
+       ========================================================================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .project-card {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-smooth);
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .project-content {
+      margin-bottom: 1.25rem;
+    }
+
+    .project-title {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.015em;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-result {
+      font-size: 0.875rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+    }
+
+    .project-tag {
+      align-self: flex-start;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--accent);
+      background-color: var(--accent-light);
+      padding: 0.25rem 0.625rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--accent-border);
+    }
+
+    /* ==========================================================================
+       Section 6: Contact (Email, LinkedIn, Contact Form with Validation)
+       ========================================================================== */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 680px) {
+      .contact-container {
+        grid-template-columns: 1fr 1.35fr;
+      }
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .contact-intro-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .contact-buttons-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      padding: 0.7rem 1.1rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      background-color: #ffffff;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+      min-height: 44px;
+    }
+
+    .contact-btn svg {
+      width: 18px;
+      height: 18px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .contact-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background-color: var(--accent-light);
+      transform: translateY(-1px);
+    }
+
+    /* Contact Form */
+    .contact-form-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .form-group {
+      margin-bottom: 1.15rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+    }
+
+    .form-input,
+    .form-textarea {
+      font-family: inherit;
+      font-size: 0.9375rem;
+      color: var(--text-main);
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.65rem 0.85rem;
+      width: 100%;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .form-input.invalid,
+    .form-textarea.invalid {
+      border-color: #ef4444;
+      background-color: #fef2f2;
+    }
+
+    .form-textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .form-error-msg {
+      font-size: 0.75rem;
+      color: #dc2626;
+      margin-top: 0.3rem;
+      display: none;
+    }
+
+    .form-error-msg.visible {
+      display: block;
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    /* Success message state */
+    .form-success-box {
+      display: none;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .form-success-box.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .success-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: var(--accent-light);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .success-message-text {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.015em;
+      margin-bottom: 0.5rem;
+    }
+
+    .success-subtext {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .btn-send-another {
+      background: none;
+      border: none;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--accent);
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0.5rem;
+    }
+
+    /* ==========================================================================
+       Toast Notification
+       ========================================================================== */
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background-color: var(--text-main);
+      color: #ffffff;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 100;
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    /* ==========================================================================
+       Footer
+       ========================================================================== */
+    .site-footer {
+      margin-top: auto;
+      border-top: 1px solid var(--border-color);
+      padding: 2.25rem 0;
+      background-color: #ffffff;
+      font-size: 0.875rem;
+      color: var(--text-subtle);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      text-align: center;
+    }
+
+    @media (min-width: 600px) {
+      .footer-inner {
+        flex-direction: row;
+        text-align: left;
+      }
+    }
+
+    .footer-back-to-top {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-back-to-top:hover {
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       Phone / Responsive Adjustments
+       ========================================================================== */
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none; /* Keep top bar clean on small phones */
+      }
+      .section {
+        padding-top: 2.75rem;
+        padding-bottom: 2.75rem;
+      }
+      .hero-section {
+        padding-top: 3.5rem;
+        padding-bottom: 2.5rem;
+      }
+      .hero-name {
+        font-size: 2.25rem;
+      }
+      .hero-title {
+        font-size: 1.125rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-actions .btn {
+        width: 100%;
+      }
+      .timeline {
+        padding-left: 1.75rem;
+      }
+      .timeline-node {
+        left: -1.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       Sticky Minimal Navigation
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-inner">
+        <!-- EDITABLE PLACEHOLDER: Brand / Your Name -->
+        <a href="#hero" class="brand-logo">[Your Name]</a>
+
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- Fast Action -->
+        <a href="#cv-download" id="header-cv-btn" class="nav-cta-btn">CV</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         SECTION 1: HERO
+         - [Your Name]
+         - A one-line title
+         - A two-line introduction
+         - Download CV button (link to #)
+         ====================================================================== -->
+    <section class="section hero-section" id="hero">
+      <div class="container">
+        <!-- EDITABLE PLACEHOLDER: Your Name -->
+        <h1 class="hero-name">[Your Name]</h1>
+
+        <!-- EDITABLE PLACEHOLDER: One-line title -->
+        <p class="hero-title">Senior Product Designer &amp; Frontend Engineer</p>
+
+        <!-- EDITABLE PLACEHOLDER: Two-line introduction -->
+        <p class="hero-intro">
+          Designing and engineering high-impact digital experiences with a focus on simplicity, speed, and modern craft.<br>
+          Bridging design systems with scalable web architecture to build products that users love.
+        </p>
+
+        <!-- Download CV button (link to #) -->
+        <div class="hero-actions">
+          <a href="#" class="btn btn-primary" id="download-cv-btn" role="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download CV
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            Get in touch
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider container" />
+
+    <!-- ======================================================================
+         SECTION 2: ABOUT ME
+         - 3 or 4 sentences
+         ====================================================================== -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <h2 class="section-heading">About me</h2>
+        <!-- EDITABLE PLACEHOLDER: 3 or 4 sentences about you -->
+        <div class="about-text">
+          <p>
+            I am a multidisciplinary builder with over seven years of hands-on experience designing and developing web software.
+            My work pairs human-centered product design with clean, accessible frontend engineering to turn complex requirements into frictionless user workflows.
+            I believe that great software is defined by speed, clarity of purpose, and relentless attention to typographic detail.
+            When I am not shipping production code, I mentor aspiring developers and contribute to open-source developer tooling.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider container" />
+
+    <!-- ======================================================================
+         SECTION 3: SKILLS
+         - 8 skill chips in two groups: Work skills and Tools
+         ====================================================================== -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <h2 class="section-heading">Skills</h2>
+
+        <div class="skills-wrapper">
+          <!-- Group 1: Work skills (4 chips) -->
+          <div class="skills-group">
+            <h3 class="skills-group-title">Work skills</h3>
+            <div class="skills-grid">
+              <!-- EDITABLE PLACEHOLDER: Work Skill 1 -->
+              <span class="skill-chip">Product Strategy</span>
+              <!-- EDITABLE PLACEHOLDER: Work Skill 2 -->
+              <span class="skill-chip">Design Systems</span>
+              <!-- EDITABLE PLACEHOLDER: Work Skill 3 -->
+              <span class="skill-chip">Frontend Architecture</span>
+              <!-- EDITABLE PLACEHOLDER: Work Skill 4 -->
+              <span class="skill-chip">User Experience Research</span>
+            </div>
+          </div>
+
+          <!-- Group 2: Tools (4 chips) -->
+          <div class="skills-group">
+            <h3 class="skills-group-title">Tools</h3>
+            <div class="skills-grid">
+              <!-- EDITABLE PLACEHOLDER: Tool 1 -->
+              <span class="skill-chip">Figma</span>
+              <!-- EDITABLE PLACEHOLDER: Tool 2 -->
+              <span class="skill-chip">TypeScript</span>
+              <!-- EDITABLE PLACEHOLDER: Tool 3 -->
+              <span class="skill-chip">React &amp; Next.js</span>
+              <!-- EDITABLE PLACEHOLDER: Tool 4 -->
+              <span class="skill-chip">Tailwind CSS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider container" />
+
+    <!-- ======================================================================
+         SECTION 4: EXPERIENCE
+         - A vertical timeline with 3 roles, each with dates and two achievements
+         ====================================================================== -->
+    <section class="section experience-section" id="experience">
+      <div class="container">
+        <h2 class="section-heading">Experience</h2>
+
+        <div class="timeline">
+          <!-- Role 1 -->
+          <div class="timeline-item">
+            <span class="timeline-node" aria-hidden="true"></span>
+            <div class="role-header">
+              <h3 class="role-title">
+                <!-- EDITABLE PLACEHOLDER: Role 1 Title & Company -->
+                Staff Product Designer &amp; Engineer · <span class="role-company">Apex Studio</span>
+              </h3>
+              <!-- EDITABLE PLACEHOLDER: Role 1 Dates -->
+              <span class="role-dates">2023 — Present</span>
+            </div>
+            <ul class="achievements-list">
+              <!-- EDITABLE PLACEHOLDER: Role 1 Achievement 1 -->
+              <li class="achievement-item">
+                Spearheaded the redesign of the core telemetry dashboard, decreasing task completion times by 38% for 45,000 active users.
+              </li>
+              <!-- EDITABLE PLACEHOLDER: Role 1 Achievement 2 -->
+              <li class="achievement-item">
+                Built and unified a cross-platform design token engine adopted across 8 distributed product teams.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Role 2 -->
+          <div class="timeline-item">
+            <span class="timeline-node" aria-hidden="true"></span>
+            <div class="role-header">
+              <h3 class="role-title">
+                <!-- EDITABLE PLACEHOLDER: Role 2 Title & Company -->
+                Senior Frontend Developer · <span class="role-company">Vanguard Tech</span>
+              </h3>
+              <!-- EDITABLE PLACEHOLDER: Role 2 Dates -->
+              <span class="role-dates">2021 — 2023</span>
+            </div>
+            <ul class="achievements-list">
+              <!-- EDITABLE PLACEHOLDER: Role 2 Achievement 1 -->
+              <li class="achievement-item">
+                Architected modular client application components that boosted Lighthouse Performance scores from 64 to 98.
+              </li>
+              <!-- EDITABLE PLACEHOLDER: Role 2 Achievement 2 -->
+              <li class="achievement-item">
+                Mentored 5 junior and mid-level engineers while decreasing sprint regression defect rates by 27%.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Role 3 -->
+          <div class="timeline-item">
+            <span class="timeline-node" aria-hidden="true"></span>
+            <div class="role-header">
+              <h3 class="role-title">
+                <!-- EDITABLE PLACEHOLDER: Role 3 Title & Company -->
+                UI/UX Designer &amp; Developer · <span class="role-company">Kinetic Digital</span>
+              </h3>
+              <!-- EDITABLE PLACEHOLDER: Role 3 Dates -->
+              <span class="role-dates">2019 — 2021</span>
+            </div>
+            <ul class="achievements-list">
+              <!-- EDITABLE PLACEHOLDER: Role 3 Achievement 1 -->
+              <li class="achievement-item">
+                Shipped 14 high-traffic web applications with responsive layouts, meeting strict WCAG 2.1 AA accessibility standards.
+              </li>
+              <!-- EDITABLE PLACEHOLDER: Role 3 Achievement 2 -->
+              <li class="achievement-item">
+                Streamlined client checkout flow and reduced user drop-off by 22% through iterative A/B testing and analytics.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider container" />
+
+    <!-- ======================================================================
+         SECTION 5: PROJECTS
+         - 3 project cards, each with a title, a one-line result, and a tag
+         ====================================================================== -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <h2 class="section-heading">Projects</h2>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card">
+            <div class="project-content">
+              <!-- EDITABLE PLACEHOLDER: Project 1 Title -->
+              <h3 class="project-title">Pulse Analytics</h3>
+              <!-- EDITABLE PLACEHOLDER: Project 1 One-line Result -->
+              <p class="project-result">
+                Real-time metrics streaming interface that increased daily user engagement by 42%.
+              </p>
+            </div>
+            <!-- EDITABLE PLACEHOLDER: Project 1 Tag -->
+            <span class="project-tag">Web App</span>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="project-content">
+              <!-- EDITABLE PLACEHOLDER: Project 2 Title -->
+              <h3 class="project-title">Foundry UI System</h3>
+              <!-- EDITABLE PLACEHOLDER: Project 2 One-line Result -->
+              <p class="project-result">
+                Unified 50+ accessible components, shortening sprint feature delivery cycles by 3 weeks.
+              </p>
+            </div>
+            <!-- EDITABLE PLACEHOLDER: Project 2 Tag -->
+            <span class="project-tag">Design System</span>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card">
+            <div class="project-content">
+              <!-- EDITABLE PLACEHOLDER: Project 3 Title -->
+              <h3 class="project-title">Zenith Markdown</h3>
+              <!-- EDITABLE PLACEHOLDER: Project 3 One-line Result -->
+              <p class="project-result">
+                Minimalist offline-first distraction-free editor with over 12,000 monthly active writers.
+              </p>
+            </div>
+            <!-- EDITABLE PLACEHOLDER: Project 3 Tag -->
+            <span class="project-tag">Open Source</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider container" />
+
+    <!-- ======================================================================
+         SECTION 6: CONTACT
+         - Email and LinkedIn buttons
+         - Short contact form that checks the email
+         - Shows "Thanks, I'll be in touch!" when sent
+         ====================================================================== -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <h2 class="section-heading">Contact</h2>
+
+        <div class="contact-container">
+          <!-- Left Column: Intro & Direct Buttons -->
+          <div class="contact-info">
+            <p class="contact-intro-text">
+              Have a project in mind, an open role, or just want to chat about design systems and web tech? Feel free to reach out directly or send a message.
+            </p>
+
+            <div class="contact-buttons-group">
+              <!-- EDITABLE PLACEHOLDER: Email button (Replace email address) -->
+              <a href="mailto:your.name@example.com" class="contact-btn" id="email-btn" aria-label="Send an email to [Your Name]">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>your.name@example.com</span>
+              </a>
+
+              <!-- EDITABLE PLACEHOLDER: LinkedIn button (Replace profile URL) -->
+              <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" class="contact-btn" id="linkedin-btn" aria-label="Visit LinkedIn profile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+                <span>LinkedIn Profile</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Contact Form with Email Checking -->
+          <div class="contact-form-card">
+            <!-- Form Element -->
+            <form id="contact-form" novalidate>
+              <div class="form-group">
+                <label for="name" class="form-label">Name</label>
+                <!-- EDITABLE PLACEHOLDER: Name input -->
+                <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required />
+                <span class="form-error-msg" id="name-error">Please enter your name.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <!-- Email input checked by JavaScript -->
+                <input type="email" id="email" name="email" class="form-input" placeholder="name@example.com" required />
+                <span class="form-error-msg" id="email-error">Please enter a valid email address.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" name="message" class="form-textarea" placeholder="Hi! I'd love to connect regarding..." required></textarea>
+                <span class="form-error-msg" id="message-error">Please write a short message.</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary form-submit-btn" id="submit-btn">
+                Send Message
+              </button>
+            </form>
+
+            <!-- Success State: Displayed when sent ("Thanks, I'll be in touch!") -->
+            <div id="form-success-box" class="form-success-box" aria-live="polite">
+              <div class="success-icon-wrap" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <h3 class="success-message-text">Thanks, I'll be in touch!</h3>
+              <p class="success-subtext">Your note has been received. I usually respond within 24 to 48 hours.</p>
+              <button type="button" class="btn-send-another" id="btn-reset-form">Send another message</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <!-- EDITABLE PLACEHOLDER: Copyright & Name -->
+        <p>© 2026 [Your Name]. All rights reserved.</p>
+        <a href="#hero" class="footer-back-to-top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast notification for Download CV feedback -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- ========================================================================
+       Vanilla JavaScript (No Frameworks)
+       - Download CV action handling
+       - Contact form validation checking email format
+       - "Thanks, I'll be in touch!" success message presentation
+       ======================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // 1. Toast helper
+      const toast = document.getElementById('toast');
+      let toastTimeout;
+
+      function showToast(message) {
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add('show');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(function () {
+          toast.classList.remove('show');
+        }, 3200);
+      }
+
+      // 2. Download CV button handling (links to # as requested)
+      const downloadCvBtn = document.getElementById('download-cv-btn');
+      const headerCvBtn = document.getElementById('header-cv-btn');
+
+      function handleDownloadCv(e) {
+        e.preventDefault();
+        showToast("Preparing CV download... (Replace '#' with your actual PDF link)");
+      }
+
+      if (downloadCvBtn) {
+        downloadCvBtn.addEventListener('click', handleDownloadCv);
+      }
+      if (headerCvBtn) {
+        headerCvBtn.addEventListener('click', handleDownloadCv);
+      }
+
+      // 3. Contact Form validation and submission
+      const form = document.getElementById('contact-form');
+      const successBox = document.getElementById('form-success-box');
+      const resetBtn = document.getElementById('btn-reset-form');
+
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const messageInput = document.getElementById('message');
+
+      const nameError = document.getElementById('name-error');
+      const emailError = document.getElementById('email-error');
+      const messageError = document.getElementById('message-error');
+
+      // Email validation regex (standard RFC 5322 compatible email check)
+      const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+
+      function validateEmail(email) {
+        return emailRegex.test(String(email).trim());
+      }
+
+      // Remove invalid styling on input
+      [nameInput, emailInput, messageInput].forEach(function (input) {
+        if (!input) return;
+        input.addEventListener('input', function () {
+          this.classList.remove('invalid');
+          const errorElement = document.getElementById(this.id + '-error');
+          if (errorElement) {
+            errorElement.classList.remove('visible');
+          }
+        });
+      });
+
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          let isValid = true;
+
+          // Check Name
+          const nameVal = nameInput.value.trim();
+          if (!nameVal) {
+            nameInput.classList.add('invalid');
+            nameError.classList.add('visible');
+            isValid = false;
+          } else {
+            nameInput.classList.remove('invalid');
+            nameError.classList.remove('visible');
+          }
+
+          // Check Email
+          const emailVal = emailInput.value.trim();
+          if (!emailVal || !validateEmail(emailVal)) {
+            emailInput.classList.add('invalid');
+            emailError.classList.add('visible');
+            isValid = false;
+          } else {
+            emailInput.classList.remove('invalid');
+            emailError.classList.remove('visible');
+          }
+
+          // Check Message
+          const messageVal = messageInput.value.trim();
+          if (!messageVal) {
+            messageInput.classList.add('invalid');
+            messageError.classList.add('visible');
+            isValid = false;
+          } else {
+            messageInput.classList.remove('invalid');
+            messageError.classList.remove('visible');
+          }
+
+          if (isValid) {
+            // Success: Hide form and show "Thanks, I'll be in touch!"
+            form.style.display = 'none';
+            successBox.classList.add('active');
+            showToast("Message sent successfully!");
+          } else {
+            // Focus first invalid input
+            const firstInvalid = form.querySelector('.invalid');
+            if (firstInvalid) {
+              firstInvalid.focus();
+            }
+          }
+        });
+      }
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', function () {
+          form.reset();
+          form.style.display = 'block';
+          successBox.classList.remove('active');
+          if (nameInput) nameInput.focus();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
